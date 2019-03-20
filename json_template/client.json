@@ -1,0 +1,158 @@
+{
+    "log": {
+        "access": "",
+        "error": "",
+        "loglevel": "info"
+    },
+    "inbound": {
+        "port": 1080,
+        "listen": "0.0.0.0",
+        "protocol": "socks",
+        "settings": {
+            "auth": "noauth",
+            "udp": true,
+            "ip": "127.0.0.1",
+            "clients": null
+        },
+        "streamSettings": null
+    },
+    "outbound": {
+        "tag": "agentout",
+        "protocol": "vmess",
+        "settings": {
+            "vnext": [
+                {
+                    "address": "123.ocm",
+                    "port": 1234,
+                    "users": [
+                        {
+                            "id": "cc4f8d5b-967b-4557-a4b6-bde92965bc27",
+                            "alterId": 100,
+                            "security": "aes-128-gcm"
+                        }
+                    ]
+                }
+            ]
+        },
+        "streamSettings": {
+            "security": "",
+            "tlsSettings": {},
+            "wsSettings": null,
+            "network": "tcp",
+            "kcpSettings": null,
+            "tcpSettings": {
+                "header": {
+                    "request": {
+                        "path": [
+                            "/"
+                        ],
+                        "version": "1.1",
+                        "method": "GET",
+                        "headers": {
+                            "Host": "bing.com",
+                            "Connection": [
+                                "keep-alive"
+                            ],
+                            "Accept-Encoding": [
+                                "gzip, deflate"
+                            ],
+                            "Pragma": "no-cache",
+                            "User-Agent": [
+                                "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.75 Safari/537.36",
+                                "Mozilla/5.0 (iPhone; CPU iPhone OS 10_0_2 like Mac OS X) AppleWebKit/601.1 (KHTML, like Gecko) CriOS/53.0.2785.109 Mobile/14A456 Safari/601.1.46"
+                            ]
+                        }
+                    },
+                    "type": "http",
+                    "response": {
+                        "status": "200",
+                        "headers": {
+                            "Transfer-Encoding": [
+                                "chunked"
+                            ],
+                            "Connection": [
+                                "keep-alive"
+                            ],
+                            "Content-Type": [
+                                "application/octet-stream",
+                                "video/mpeg"
+                            ],
+                            "Pragma": "no-cache"
+                        },
+                        "reason": "OK",
+                        "version": "1.1"
+                    }
+                },
+                "connectionReuse": true
+            }
+        },
+        "mux": {
+            "enabled": true
+        }
+    },
+    "inboundDetour": null,
+    "outboundDetour": [
+        {
+            "protocol": "freedom",
+            "settings": {
+                "response": null
+            },
+            "tag": "direct"
+        },
+        {
+            "protocol": "blackhole",
+            "settings": {
+                "response": {
+                    "type": "http"
+                }
+            },
+            "tag": "blockout"
+        }
+    ],
+    "dns": {
+        "servers": [
+            "8.8.8.8",
+            "8.8.4.4",
+            "localhost"
+        ]
+    },
+    "routing": {
+        "strategy": "rules",
+        "settings": {
+            "domainStrategy": "IPIfNonMatch",
+            "rules": [
+                {
+                    "type": "field",
+                    "port": null,
+                    "outboundTag": "direct",
+                    "ip": [
+                        "0.0.0.0/8",
+                        "10.0.0.0/8",
+                        "100.64.0.0/10",
+                        "127.0.0.0/8",
+                        "169.254.0.0/16",
+                        "172.16.0.0/12",
+                        "192.0.0.0/24",
+                        "192.0.2.0/24",
+                        "192.168.0.0/16",
+                        "198.18.0.0/15",
+                        "198.51.100.0/24",
+                        "203.0.113.0/24",
+                        "::1/128",
+                        "fc00::/7",
+                        "fe80::/10"
+                    ],
+                    "domain": null
+                },
+                {
+                    "type": "chinaip",
+                    "outboundTag": "direct"
+                },
+                {
+                    "type": "chinasites",
+                    "outboundTag": "direct"
+                }
+            ]
+        }
+    }
+}
