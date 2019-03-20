@@ -25,9 +25,9 @@ Every human has his/her own specialties, they may not skilled enough to familiar
 
 <!-- vim-markdown-toc -->
 
-# V2ray.fun
+## v2ray.fun 是什么？（What's v2ray.fun?）
 
-V2ray控制脚本，向导式更改端口，加密方式，传输协议，享受V2ray的乐趣~
+v2ray.fun 是一款用于控制、配置 v2ray Linux 服务端的脚本程序，程序以交互式向导模式，向用户提供更改端口，加密方式，传输协议等功能，可省去手动配置大段 v2ray 配置文件可能出现的格式错误、配置错误等麻烦，尽情享受V2ray的乐趣~~
 
 
 ## 功能
