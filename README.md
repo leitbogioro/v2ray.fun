@@ -72,7 +72,7 @@ bash -c "$(curl -fsSL https://git.io/fh9AC)"
 
 ![3](3.png)
 
-![4](4.jpg)
+<div align=center><img src="https://raw.githubusercontent.com/leitbogioro/v2ray.fun/master/4.jpg"/></div>
 
 ## 系统要求（以下默认均为 x64 版，x86 版因 nodejs 等组件无法安装，故不提供支持！）
 
