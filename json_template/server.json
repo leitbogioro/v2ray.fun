@@ -124,7 +124,7 @@
         }, 
         {
           "type": "field", 
-          "outboundTag": "direct", 
+          "outboundTag": "blocked", 
           "domain": [
             "ext:h2y.dat:ad"
           ]
