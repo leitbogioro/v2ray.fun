@@ -84,7 +84,7 @@ bash -c "$(curl -fsSL https://git.io/fh9AC)"
 - Ubuntu 14 
 - **Ubuntu 16（推荐 Recommended）**
 - Ubuntu 18
-- CentOS 6（独家 This is the unique version can be installed on CentOS6）
+- CentOS 6（独家 This is the unique version can be installed on this OS despite v2ray official don't support CentOS6）
 - CentOS 7
 
 ## 软件要求
