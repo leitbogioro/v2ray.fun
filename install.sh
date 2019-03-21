@@ -111,14 +111,13 @@ py_qrcode(){
 # Write v2ray process to CentOS6's system service
 vSvc_Path="/etc/init.d/v2ray"
 write_service_to_CentOS6(){
-    wget https://raw.githubusercontent.com/leitbogioro/v2ray.fun/add-ons/v2ray
+    wget https://raw.githubusercontent.com/leitbogioro/v2ray.fun/add-ons/v2ray.st
     if [ -f /etc/init.d/v2ray ]; then
         rm -rf ${vSvc_Path}
     fi
-    mv v2ray ${vSvc_Path}
+    mv v2ray.st ${vSvc_Path}
     chmod a+x ${vSvc_Path}
     chkconfig v2ray on
-    service v2ray start
 }
 
 # Main depends
@@ -156,6 +155,9 @@ git clone https://github.com/leitbogioro/v2ray.fun
 
 # 安装V2ray主程序
 bash <(curl -L -s https://install.direct/go.sh)
+if [[ ${OS} == 'CentOS' ]] && [[ ${CentOS_Version} -eq "6" ]]; then
+    write_service_to_CentOS6
+fi
 
 # 配置V2ray初始环境
 ln -sf /usr/local/v2ray.fun/v2ray /usr/local/bin
@@ -174,6 +176,7 @@ ad_filter_supplement(){
     wget ${ad_filter}
 }
 ad_filter_supplement
+service v2ray restart
 
 # auto open port after start
 # append a new line
@@ -183,12 +186,6 @@ cat>>/etc/rc.local<<EOF
 python /usr/local/v2ray.fun/openport.py
 EOF
 chmod a+x /etc/rc.local
-fi
-
-if [[ ${OS} == 'CentOS' ]] && [[ ${CentOS_Version} -eq "6" ]]; then
-    write_service_to_CentOS6
-else
-    service v2ray restart
 fi
 
 clear
