@@ -41,8 +41,8 @@ if [ -s /etc/selinux/config ] && grep 'SELINUX=enforcing' /etc/selinux/config; t
 fi
 
 # 输出 centos 系统大版本号
-System_CentOS=`rpm -q centos-release|cut -d- -f1`
-CentOS_Version=`cat /etc/redhat-release|sed -r 's/.* ([0-9]+)\..*/\1/'`
+System_CentOS=`rpm -q centos-release > /dev/null 2>&1 | cut -d- -f1`
+CentOS_Version=`cat /etc/redhat-release > /dev/null 2>&1 | sed -r 's/.* ([0-9]+)\..*/\1/'`
 
 # Aliyun's depository for CentOS 6
 CentOS6_repo(){
