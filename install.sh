@@ -112,7 +112,7 @@ py_qrcode(){
 vSvc_Path="/etc/init.d/v2ray"
 write_service_to_CentOS6(){
     wget https://raw.githubusercontent.com/leitbogioro/v2ray.fun/add-ons/v2ray
-    if [ -f /etc/init.d/v2ray ];then
+    if [ -f /etc/init.d/v2ray ]; then
         rm -rf ${vSvc_Path}
     fi
     mv v2ray ${vSvc_Path}
