@@ -76,13 +76,15 @@ bash -c "$(curl -fsSL https://git.io/fh9AC)"
 <div align=center><img src="https://raw.githubusercontent.com/leitbogioro/v2ray.fun/master/4.jpg"/></div>
 
 ## 系统要求（以下默认均为 x64 版，x86 版因 nodejs 等组件无法安装，故不提供支持！）
+## OS Requiremets(These following OS are default x64 version, x86 versions are not supported and don't install on them!)
 
 - Debian 7 
 - Debian 8
+- **Debian 9（推荐 Recommended）**
 - Ubuntu 14 
-- **Ubuntu 16（推荐）**
+- **Ubuntu 16（推荐 Recommended）**
 - Ubuntu 18
-- CentOS 6（独家）
+- CentOS 6（独家 This is the unique version can be installed on CentOS6）
 - CentOS 7
 
 ## 软件要求
