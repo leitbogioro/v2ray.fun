@@ -111,7 +111,7 @@ py_qrcode(){
 # Write v2ray process to CentOS6's system service
 vSvc_Path="/etc/init.d/v2ray"
 write_service_to_CentOS6(){
-    wget https://raw.githubusercontent.com/leitbogioro/v2ray.fun/add-on/v2ray
+    wget https://raw.githubusercontent.com/leitbogioro/v2ray.fun/add-ons/v2ray
     if [ -f /etc/init.d/v2ray ];then
         rm -rf ${vSvc_Path}
     fi
