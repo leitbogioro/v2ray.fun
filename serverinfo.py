@@ -30,10 +30,7 @@ else:
 
 # 输出信息
 print("服务器IP：%s") % str(myip)
-if readjson.ConfListeningLocal == "127.0.0.1" and readjson.ConfStreamNetwork == "ws":
-    print ("主端口：443")
-else:
-    print("主端口：%s") % str(readjson.ConfPort)
+print("主端口：%s") % str(readjson.ConfPort)
 print("UUID：%s") % str(readjson.ConfUUID)
 print("alter ID: %s") % str(readjson.ConfAlterId)
 print("加密方式：%s") % str(readjson.ConfSecurity)
@@ -44,6 +41,13 @@ else:
     print("动态端口:禁止")
 
 # config["host"] = str(readjson.ConfPath)
+
+def clientPort():
+    global PortUrl
+    if readjson.ConfListeningLocal == "127.0.0.1" and readjson.ConfStreamNetwork == "ws":
+        PortUrl = str(443)
+    else:
+        PortUrl = str(readjson.ConfPort)
 
 def GetVmessUrl():
     config = {
@@ -60,13 +64,14 @@ def GetVmessUrl():
         "tls": "",
     }
     config["add"] = str(myip)
-    config["port"] = str(readjson.ConfPort)
+    clientPort()
+    config["port"] = PortUrl
     config["id"] = str(readjson.ConfUUID)
     config["aid"] = str(readjson.ConfAlterId)
     config["net"] = str(mystreamnetwork)
     if mystreamnetwork == "kcp":
         config["type"] = str(readjson.ConfStreamHeader)
-    if (readjson.ConfSecurity == "tls"):
+    if (readjson.ConfSecurity == "tls") or (readjson.ConfListeningLocal == "127.0.0.1" and readjson.ConfStreamNetwork == "ws"):
         config["tls"] = "tls"
     base64Str = base64.encodestring(json.dumps(config))
     base64Str = ''.join(base64Str.split())
@@ -81,8 +86,9 @@ def GetVmessUrlPepi():
         mystreamnetwork = "websocket"
     else:
         mystreamnetwork = "none"
+    clientPort()
     base64Str = base64.urlsafe_b64encode(str(readjson.ConfSecurity) + ":" + str(
-        readjson.ConfUUID) + "@" + str(myip) + ":" + str(readjson.ConfPort))
+        readjson.ConfUUID) + "@" + str(myip) + ":" + PortUrl)
     vmessurl = "vmess://" + base64Str + "?obfs=" + str(mystreamnetwork)
     return vmessurl
 
