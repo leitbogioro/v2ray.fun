@@ -2,6 +2,7 @@
 export PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
 ad_filter="https://raw.githubusercontent.com/ToutyRater/V2Ray-SiteDAT/master/geofiles/h2y.dat"
+vf_path="/usr/local/v2ray.fun"
 
 # 检查是否为Root
 [ $(id -u) != "0" ] && { echo "Error: You must be root to run this script"; exit 1; }
@@ -158,7 +159,7 @@ curl  https://get.acme.sh | sh
 
 # 克隆V2ray.fun项目
 cd /usr/local/
-if [ -f /usr/local/v2ray.fun ]; then
+if [ -f ${vf_path} ]; then
     rm -rf v2ray.fun
 fi
 git clone https://github.com/leitbogioro/v2ray.fun
@@ -170,23 +171,24 @@ if [[ ${OS} == 'CentOS' ]] && [[ ${CentOS_Version} -eq "6" ]]; then
 fi
 
 # 配置V2ray初始环境
-ln -sf /usr/local/v2ray.fun/v2ray /usr/local/bin
+ln -sf ${vf_path}/v2ray /usr/local/bin
 chmod +x /usr/bin/v2ray
 chmod +x /usr/local/bin/v2ray
 rm -rf /etc/v2ray/config.json
-cp /usr/local/v2ray.fun/json_template/server.json /etc/v2ray/config.json
+cp ${vf_path}/json_template/server.json /etc/v2ray/config.json
 random_range 10000 65535
 let PORT=${num}
 UUID=$(cat /proc/sys/kernel/random/uuid)
 sed -i "s/UUID_is_here/${UUID}/g" /etc/v2ray/config.json
 sed -i "s/port_is_here/${PORT}/g" /etc/v2ray/config.json
-python /usr/local/v2ray.fun/genclient.py
-python /usr/local/v2ray.fun/openport.py
+python ${vf_path}/genclient.py
+python ${vf_path}/openport.py
 ad_filter_supplement(){
     cd /usr/bin/v2ray
     wget ${ad_filter}
 }
 ad_filter_supplement
+chmod +x ${vf_path}/*.py ${vf_path}/*.sh ${vf_path}/mydomain
 service v2ray restart
 
 # auto open port after start
@@ -194,7 +196,7 @@ service v2ray restart
 cat /etc/rc.local | grep openport.py
 if [[ $? -ne 0 ]]; then
 cat>>/etc/rc.local<<EOF
-python /usr/local/v2ray.fun/openport.py
+python ${vf_path}/openport.py
 EOF
 chmod a+x /etc/rc.local
 fi
