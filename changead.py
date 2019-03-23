@@ -5,6 +5,7 @@ from utils import (download_files, move_files)
 
 rules = readjson.ConfRouting[u"settings"][u"rules"]
 ad_rules_file = "/usr/bin/v2ray/h2y.dat"
+cronfile = open('/etc/crontab', 'r')
 
 if rules[1][u"outboundTag"] == "direct":
     if_open_ad_function = "广告拦截功能： 未开启"
