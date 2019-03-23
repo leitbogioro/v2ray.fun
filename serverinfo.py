@@ -1,11 +1,7 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import readjson
-import urllib2
-import base64
-import os
-import json
+import readjson, urllib2, base64, os, json
 # 获取本机IP地址
 myip = urllib2.urlopen('http://api.ipify.org').read()
 myip = myip.strip()
@@ -34,7 +30,10 @@ else:
 
 # 输出信息
 print("服务器IP：%s") % str(myip)
-print("主端口：%s") % str(readjson.ConfPort)
+if readjson.ConfListeningLocal == "127.0.0.1" and readjson.ConfStreamNetwork == "ws":
+    print ("主端口：443")
+else:
+    print("主端口：%s") % str(readjson.ConfPort)
 print("UUID：%s") % str(readjson.ConfUUID)
 print("alter ID: %s") % str(readjson.ConfAlterId)
 print("加密方式：%s") % str(readjson.ConfSecurity)
@@ -43,7 +42,6 @@ if readjson.ConfigDynPortRange:
     print("动态端口范围:%s") % str(readjson.ConfigDynPortRange)
 else:
     print("动态端口:禁止")
-
 
 # config["host"] = str(readjson.ConfPath)
 
@@ -75,7 +73,6 @@ def GetVmessUrl():
     vmessurl = "vmess://" + base64Str
     return vmessurl
 
-
 def GetVmessUrlPepi():
     mystreamnetwork = str(readjson.ConfStreamNetwork)
     if readjson.ConfStreamNetwork == "http":
@@ -89,20 +86,16 @@ def GetVmessUrlPepi():
     vmessurl = "vmess://" + base64Str + "?obfs=" + str(mystreamnetwork)
     return vmessurl
 
-
 def GreenShow(string):
     print("\033[32m")
     print("%s") % string
     print("\033[0m")
 
-
 def GenQRCode(name, string):
     os.system("qrcode -w 200 -o ~/" + name + " " + string)
 
-
 def ShowQRCode(string):
     os.system("qrcode -w 200 " + string)
-
 
 print("=====  V2rayN v2.x =====")
 GreenShow(GetVmessUrl())
