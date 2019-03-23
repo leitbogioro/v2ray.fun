@@ -26,6 +26,13 @@ def substitute_ad_files_and_upgrade_ad_tactics():
         os.remove(ad_rules_file)
         move_files("h2y.dat", "/usr/bin/v2ray/")
         writejson.WriteAD("on")
+        if re.search(r'/v2ray.fun/autoupad.sh', cronfile.read()):
+            os.system("bash /usr/local/v2ray.fun/autoupad.sh")
+            print ("设置成功！")
+        else:
+            os.system("sed -i '$i\\\\0  0    */7 * *   root    bash /usr/local/v2ray.fun/autoupad.sh' /etc/crontab")
+            os.system("bash /usr/local/v2ray.fun/autoupad.sh")
+            print ("设置成功！")
     else:
         move_files("h2y.dat", "/usr/bin/v2ray/")
         writejson.WriteAD("on")
