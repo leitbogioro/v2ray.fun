@@ -36,6 +36,14 @@ def substitute_ad_files_and_upgrade_ad_tactics():
     else:
         move_files("h2y.dat", "/usr/bin/v2ray/")
         writejson.WriteAD("on")
+        
+def disable_ad_filter():
+    writejson.WriteAD("off")
+    if re.search(r'/v2ray.fun/autoupad.sh', cronfile.read()):
+        os.system("sed -i -e '/autoupad.sh/d; /v2ray.fun/d' /etc/crontab")
+        print ("设置成功！")
+    else:
+        print ("设置成功！")
 
 choice = raw_input("请选择： ")
 
