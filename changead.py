@@ -16,10 +16,9 @@ print("")
 print(if_open_ad_function)
 
 print("")
-print("1. 开启")
+print("1. 开启广告过滤并自动更新规则")
 print("2. 关闭")
-print("3. 更新广告过滤策略")
-print("4. 供老用户迁移至新的广告过滤策略")
+print("3. 供老用户迁移至新的广告过滤策略")
 
 def substitute_ad_files_and_upgrade_ad_tactics():
     download_files(f_url = "https://raw.githubusercontent.com/ToutyRater/V2Ray-SiteDAT/master/geofiles/h2y.dat", f_name = "h2y.dat")
