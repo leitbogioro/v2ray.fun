@@ -30,7 +30,7 @@ def substitute_ad_files_and_upgrade_ad_tactics():
             os.system("bash /usr/local/v2ray.fun/autoupad.sh")
             print ("设置成功！")
         else:
-            os.system("sed -i '$i\\\\0  0    */7 * *   root    bash /usr/local/v2ray.fun/autoupad.sh' /etc/crontab")
+            os.system("sed -i '$i\\\\30 4    * * 0   root    bash /usr/local/v2ray.fun/autoupad.sh' /etc/crontab")
             os.system("bash /usr/local/v2ray.fun/autoupad.sh")
             print ("设置成功！")
     else:
