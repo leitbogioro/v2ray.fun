@@ -120,6 +120,14 @@ write_service_to_CentOS6(){
     chkconfig v2ray on
 }
 
+# Generate_random_num
+random_range(){
+    local begin=$1
+    local end=$2
+    num=$((RANDOM % ($end - $begin) + $begin))
+    return ${num}
+}
+
 # Main depends
 if [[ ${OS} == 'CentOS' ]] && [[ ${CentOS_Version} -eq "7" ]]; then
     CentOS7_repo
@@ -165,10 +173,11 @@ chmod +x /usr/bin/v2ray
 chmod +x /usr/local/bin/v2ray
 rm -rf /etc/v2ray/config.json
 cp /usr/local/v2ray.fun/json_template/server.json /etc/v2ray/config.json
-let PORT=$RANDOM+10000
+random_range 10000 65535
+let PORT=${num}
 UUID=$(cat /proc/sys/kernel/random/uuid)
 sed -i "s/UUID_is_here/${UUID}/g" /etc/v2ray/config.json
-sed -i "s/12345/${PORT}/g" "/etc/v2ray/config.json"
+sed -i "s/port_is_here/${PORT}/g" /etc/v2ray/config.json
 python /usr/local/v2ray.fun/genclient.py
 python /usr/local/v2ray.fun/openport.py
 ad_filter_supplement(){
