@@ -23,11 +23,11 @@ if [ -d /usr/local/aegis ] || [[ -f /etc/init.d/aegis ]] || [[ ! -n $agentwatch 
 fi
 
 # 检查系统信息
-if [ -f /etc/redhat-release ];then
+if [ -f /etc/redhat-release ]; then
         OS='CentOS'
-    elif [ ! -z "`cat /etc/issue | grep bian`" ];then
+    elif [ ! -z "`cat /etc/issue | grep bian`" ]; then
         OS='Debian'
-    elif [ ! -z "`cat /etc/issue | grep Ubuntu`" ];then
+    elif [ ! -z "`cat /etc/issue | grep Ubuntu`" ]; then
         OS='Ubuntu'
     else
         echo "Not support OS, Please reinstall OS and retry!"
@@ -158,7 +158,9 @@ curl  https://get.acme.sh | sh
 
 # 克隆V2ray.fun项目
 cd /usr/local/
-rm -R v2ray.fun
+if [ -f /usr/local/v2ray.fun ]; then
+    rm -rf v2ray.fun
+fi
 git clone https://github.com/leitbogioro/v2ray.fun
 
 # 安装V2ray主程序
