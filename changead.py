@@ -48,11 +48,9 @@ def disable_ad_filter():
 choice = raw_input("请选择： ")
 
 if choice == "1":
-    writejson.WriteAD("on")
-elif choice == "2":
-    writejson.WriteAD("off")
-elif choice == "3":
     substitute_ad_files_and_upgrade_ad_tactics()
-elif choice == "4":
+elif choice == "2":
+    disable_ad_filter()
+elif choice == "3":
     writejson.Del_Old_Ad_Rules()
-    substitute_ad_files_and_upgrade_ad_tactics
+    substitute_ad_files_and_upgrade_ad_tactics()
