@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
-import readjson, writejson, os
+import readjson, writejson, os, re
 from utils import (download_files, move_files)
 
 rules = readjson.ConfRouting[u"settings"][u"rules"]
