@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import os, urllib2, shutil
+import os, urllib2, shutil, ssl
 
 # 判断是否为数字的函数
 def is_number(s):
@@ -21,9 +21,10 @@ def is_number(s):
 
 # 下载文件
 def download_files(f_url, f_name, mode = "wb"):
+    context = ssl._create_unverified_context()
     files = f_name
     url = f_url
-    f = urllib2.urlopen(url)
+    f = urllib2.urlopen(url, context=context)
     data = f.read()
     with open(f_name, mode) as code:
         code.write(data)
