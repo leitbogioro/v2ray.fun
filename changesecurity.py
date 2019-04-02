@@ -26,7 +26,7 @@ else:
         writejson.WriteSecurity("chacha20-poly1305")
     elif(newsecurity == "4"):
         writejson.WriteSecurity("auto")
-    elif(newsecutity == "5"):
+    elif(newsecurity == "5"):
         writejson.WriteSecurity("none")
     else:
         print("请输入1-5之间的数字！")
