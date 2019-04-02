@@ -50,6 +50,8 @@ else:
         elif(newstreamnetwork == "3"):
             print("请输入你的服务器绑定域名（不不不需要http）：")
             host = raw_input()
+            if host == "":
+                host = "127.0.0.1"
             writejson.WriteStreamNetwork("ws", str(host))
         elif(newstreamnetwork == "4"):
             writejson.WriteStreamNetwork("mkcp", "none")
