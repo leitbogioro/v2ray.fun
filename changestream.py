@@ -51,7 +51,7 @@ else:
             print("请输入你的服务器绑定域名（不不不需要http，如果输入的内容为空，则自动视为监听服务器本地地址，方便后续交由 Nginx/Caddy/Apache 等 Web 服务器做分流）：")
             host = raw_input()
             if host == "":
-                host = "127.0.0.1"
+                writejson.WriteListen("127.0.0.1")
             writejson.WriteStreamNetwork("ws", str(host))
         elif(newstreamnetwork == "4"):
             writejson.WriteStreamNetwork("mkcp", "none")
