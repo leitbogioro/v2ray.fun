@@ -52,6 +52,8 @@ else:
             host = raw_input()
             if host == "":
                 writejson.WriteListen("127.0.0.1")
+            # print("请输入 v2ray 隐藏在网站下的某个目录")
+            # path = raw_input()
             writejson.WriteStreamNetwork("ws", str(host))
         elif(newstreamnetwork == "4"):
             writejson.WriteStreamNetwork("mkcp", "none")
