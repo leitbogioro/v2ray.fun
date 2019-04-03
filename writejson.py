@@ -57,6 +57,11 @@ def WriteSecurity(mysecurity):
         mysecurity)
     Write()
 
+# 设置监听本地端口
+def WriteListen(mylisten):
+    config[u"inbound"][u"listen"] = str(mylisten)
+    Write()
+
 # 更改底层传输设置
 def WriteStreamNetwork(network, para):
     security_backup = config[u"inbound"][u"streamSettings"][u"security"]
