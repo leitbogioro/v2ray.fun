@@ -24,14 +24,14 @@ if [ -d /usr/local/aegis ] || [[ -f /etc/init.d/aegis ]] || [[ ! -n $agentwatch 
 fi
 
 # 检查系统信息
-if [ -f /etc/redhat-release ]; then
-        OS='CentOS'
+if [ -f /etc/redhat-release ] && [[ `grep -i 'centos' /etc/redhat-release` ]]; then
+    OS='CentOS'
     elif [ ! -z "`cat /etc/issue | grep bian`" ]; then
         OS='Debian'
     elif [ ! -z "`cat /etc/issue | grep Ubuntu`" ]; then
         OS='Ubuntu'
     else
-        echo "Not support OS, Please reinstall OS and retry!"
+        echo "你的操作系统不受支持，请选择在 Ubuntu/Debian/CentOS 操作系统上安装！"
         exit 1
 fi
 
