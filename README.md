@@ -135,6 +135,8 @@ bash -c "$(curl -fsSL https://git.io/fh9AC)"
 
 - 安装完成后，为 /usr/local/v2ray.fun 文件夹中的主要程序文件增加权限。（2019.3.23）
 
+- 修复了因判断逻辑错误，CentOS 无法正确安装的问题。（2019.4.10）
+
 ## 特别说明 && 致谢
 
 也可以先查看下本仓库的[wiki](https://github.com/leitbogioro/v2ray.fun/wiki)
