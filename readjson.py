@@ -24,6 +24,7 @@ ConfStreamKcpSettings = ConfStream[u'kcpSettings']
 ConfStreamNetwork = ConfStream[u"network"]
 ConfStreamSecurity = ConfStream[u"security"]
 ConfListeningLocal = ConfInbound[u"listen"]
+ConfPath = ConfStream[u"path"]
 
 if config[u"inboundDetour"] and "port" in config[u"inboundDetour"][0]:
     ConfigDynPortRange = config[u"inboundDetour"][0][u"port"]
