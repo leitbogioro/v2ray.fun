@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import os, urllib2, shutil, ssl
+import os, urllib2, shutil, ssl, uuid
 
 # 判断是否为数字的函数
 def is_number(s):
@@ -35,3 +35,11 @@ def move_files(f_name, t_folder):
         shutil.move(f_name, t_folder)
     else:
         print ("Could not found " + f_name)
+
+# 验证输入值是否符合 uuid 格式
+def is_valid_uuid(uuid):
+    parts = uuid.split('-')
+    if ([len(i) for i in parts] == [8, 4, 4, 4, 12] and
+            all(i in '0123456789abcdef-' for i in uuid)):
+        return True
+    return False
