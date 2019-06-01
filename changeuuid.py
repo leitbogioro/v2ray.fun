@@ -10,6 +10,7 @@ genUUID = raw_input()
 def writeuuid(newuuid):
     writejson.WriteUUID(newuuid)
     print "新的UUID为：{}".format(newuuid)
+    print("")
 
 if genUUID == "y" or genUUID == '':
     newuuid = uuid.uuid4()
