@@ -61,6 +61,11 @@ def WriteSecurity(mysecurity):
 def WriteListen(mylisten):
     config[u"inbound"][u"listen"] = str(mylisten)
     Write()
+    
+# 更改路径
+def WritePath(myPath):
+    config[u"inbound"][u"streamSettings"][u"wsSettings"][u"path"] = str(myPath)
+    Write()
 
 # 更改底层传输设置
 def WriteStreamNetwork(network, para):
