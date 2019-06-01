@@ -35,13 +35,12 @@ print("UUID：%s") % str(readjson.ConfUUID)
 print("alter ID: %s") % str(readjson.ConfAlterId)
 print("加密方式：%s") % str(readjson.ConfSecurity)
 print("传输方式：%s") % str(mystreamnetwork)
-print("路径：%s") % str(readjson.ConfPath)
+if mystreamnetwork == "WebSocket":
+    print("路径：%s") % str(readjson.ConfPath)
 if readjson.ConfigDynPortRange:
     print("动态端口范围:%s") % str(readjson.ConfigDynPortRange)
 else:
     print("动态端口:禁止")
-
-# config["host"] = str(readjson.ConfPath)
 
 def clientPort():
     global PortUrl
