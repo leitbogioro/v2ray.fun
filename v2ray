@@ -108,6 +108,7 @@ if [[ ${choice} == 2 ]]; then
 	    fi
     done
     if [[ ${changechoice} == 9 ]]; then
+        python /usr/local/v2ray.fun/changepath.py
 	    service v2ray restart
         echo ""
         echo "已完成path值的修改！"
