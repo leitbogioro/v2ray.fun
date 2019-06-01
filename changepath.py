@@ -7,6 +7,8 @@ if readjson.ConfStreamNetwork == "ws":
     print("当前路径为：%s") % str(readjson.ConfPath)
     print("请输入新路径（前缀“/”不需要输入，程序会帮你自动填好）：")
     newpath = raw_input()
+    if newpath == "":
+        newpath = ""
     newpath = "/"+newpath
     writejson.WritePath(newpath)
 else:
