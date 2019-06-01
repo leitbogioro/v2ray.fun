@@ -9,7 +9,8 @@ if readjson.ConfStreamNetwork == "ws":
     newpath = raw_input()
     if newpath == "":
         newpath = ""
-    newpath = "/"+newpath
+    else:
+        newpath = "/"+newpath
     writejson.WritePath(newpath)
 else:
     print("您并未使用 Websocket 协议，无需配置path！")
