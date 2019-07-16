@@ -3,7 +3,7 @@ A easily command interaction manager for v2ray
 <br>
 一个简单的 v2ray 管理工具
 
-## 简介（Introduction）
+## 开发 v2ray.fun 的目的（Purpose of developing v2ray.fun）
 Every human has his/her own specialties, they may not skilled enough to familiar with complex configurations about how to config proxy tools and know everything about it, so I wish you can achieve a benifit over this tool and escape variety censorships before access internet safely, conveniently, rapidly, freely.
 <br>
 <br>
@@ -27,7 +27,7 @@ Every human has his/her own specialties, they may not skilled enough to familiar
 
 <!-- vim-markdown-toc -->
 
-## 项目简介（项目简介）
+## 项目简介
 
 v2ray.fun 是一款用于控制、配置 v2ray Linux 服务端的脚本程序，程序以交互式向导模式，向用户提供更改端口，加密方式，传输协议等功能，可省去手动配置大段 v2ray 配置文件可能出现的格式错误、配置错误等麻烦，尽情享受V2ray的乐趣~~
 
