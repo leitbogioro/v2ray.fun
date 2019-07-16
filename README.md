@@ -13,7 +13,7 @@ Every human has his/her own specialties, they may not skilled enough to familiar
 
 ## 目录（Catalogs）
 * [V2ray.fun](#v2rayfun)
-    * [v2ray.fun 是什么？](#v2ray.fun 是什么？)
+    * [项目简介](#项目简介)
     * [功能](#功能)
     * [客户端](#客户端)
     * [安装命令](#安装命令)
@@ -27,7 +27,7 @@ Every human has his/her own specialties, they may not skilled enough to familiar
 
 <!-- vim-markdown-toc -->
 
-## v2ray.fun 是什么？（What's v2ray.fun?）
+## 项目简介（项目简介）
 
 v2ray.fun 是一款用于控制、配置 v2ray Linux 服务端的脚本程序，程序以交互式向导模式，向用户提供更改端口，加密方式，传输协议等功能，可省去手动配置大段 v2ray 配置文件可能出现的格式错误、配置错误等麻烦，尽情享受V2ray的乐趣~~
 
@@ -48,10 +48,10 @@ v2ray.fun 是一款用于控制、配置 v2ray Linux 服务端的脚本程序，
   - mKCP 伪装 BT下载流量
   - mKCP 伪装 微信视频通话流量
 
+**WebSocket不包括Nginx分流，请自行安装Nginx来分流。**
+
 ## 客户端
 - 如需要 v2ray Android/Mac/Windows 客户端，请移步至本项目 https://github.com/leitbogioro/v2ray.fun/releases 页面寻找最新版，iOS 客户端因为 iOS 特殊的应用权限设置，你只能自己想办法去获得（中国区 AppStore 下架了所有跟 v2ray 相关的应用），Linux 版客户端正在开发中。 
-
-**WebSocket不包括Nginx分流，请自行安装Nginx来分流。**
 
 ## 安装命令
 
