@@ -142,6 +142,8 @@ bash -c "$(curl -fsSL https://git.io/fh9AC)"
 
 - 修复了因判断逻辑错误，CentOS 无法正确安装的问题。（2019.4.10）
 
+- 添加自动维护功能，该功能包含：每周自动重启 v2ray 服务、更新广告过滤规则、清理访问日志。（2019.7.31）
+
 ## 特别说明 && 致谢
 
 也可以先查看下本仓库的[wiki](https://github.com/leitbogioro/v2ray.fun/wiki)
