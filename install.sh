@@ -190,12 +190,14 @@ sed -i "s/UUID_is_here/${UUID}/g" /etc/v2ray/config.json
 sed -i "s/port_is_here/${PORT}/g" /etc/v2ray/config.json
 python ${vf_path}/genclient.py
 python ${vf_path}/openport.py
+chmod +x ${vf_path}/*.py ${vf_path}/*.sh ${vf_path}/mydomain
+#配置自动更新广告过滤功能服务
 ad_filter_supplement(){
     cd /usr/bin/v2ray
     wget ${ad_filter}
 }
 ad_filter_supplement
-chmod +x ${vf_path}/*.py ${vf_path}/*.sh ${vf_path}/mydomain
+sed -i '$i\\\\30 4    * * 0   root    bash /usr/local/v2ray.fun/autoupad.sh' /etc/crontab
 service v2ray restart
 
 # auto open port after start
