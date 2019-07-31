@@ -91,7 +91,7 @@ if [[ ${choice} == 2 ]]; then
     echo "6.更改自动维护功能"
     echo "7.更改alterId"
     echo "8.更改动态端口"
-    echo "9.更改path"
+    echo "9.更改路径"
     echo "请输入数字选择功能："
 
     while :; do echo
@@ -111,7 +111,7 @@ if [[ ${choice} == 2 ]]; then
         python /usr/local/v2ray.fun/changepath.py
 	    service v2ray restart
         echo ""
-        echo "已完成path值的修改！"
+        echo "已完成路径值的修改！"
         bash /usr/local/bin/v2ray
     fi
     if [[ ${changechoice} == 8 ]]; then
