@@ -177,7 +177,7 @@ if [[ ${choice} == 2 ]]; then
     fi
 
     if [[ ${changechoice} == 6 ]]; then
-        python /usr/local/v2ray.fun/changead.py
+        python /usr/local/v2ray.fun/configmaintain.py
 	    service v2ray restart
         echo ""
         echo "自动维护功能设置成功！"
