@@ -8,17 +8,17 @@ ad_rules_file = "/usr/bin/v2ray/h2y.dat"
 cronfile = open('/etc/crontab', 'r')
 
 if rules[1][u"outboundTag"] == "direct":
-    if_open_ad_function = "广告拦截功能： 未开启"
+    if_open_ad_function = "自动维护功能： 未开启"
 else:
-    if_open_ad_function = "广告拦截功能： 开启"
+    if_open_ad_function = "自动维护功能： 开启"
 
 print("")
 print(if_open_ad_function)
 
 print("")
-print("1. 开启广告过滤并自动更新规则")
+print("1. 开启自动维护服务（包含：每周自动重启 v2ray 服务、更新广告过滤规则、清理访问日志）")
 print("2. 关闭")
-print("3. 供老用户迁移至新的广告过滤策略")
+print("3. 供使用旧版本广告过滤规则的用户升级到新的自动维护服务（含开启自动维护服务）")
 
 def substitute_ad_files_and_upgrade_ad_tactics():
     download_files(f_url = "https://raw.githubusercontent.com/ToutyRater/V2Ray-SiteDAT/master/geofiles/h2y.dat", f_name = "h2y.dat")
