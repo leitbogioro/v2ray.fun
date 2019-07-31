@@ -17,7 +17,7 @@ print(if_open_ad_function)
 
 print("")
 print("1. 开启自动维护服务（包含：每周自动重启 v2ray 服务、更新广告过滤规则、清理访问日志）")
-print("2. 关闭")
+print("2. 关闭自动维护服务")
 print("3. 供使用旧版本广告过滤规则的用户升级到新的自动维护服务（含开启自动维护服务）")
 
 def substitute_ad_files_and_upgrade_ad_tactics():
