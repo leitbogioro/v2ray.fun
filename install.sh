@@ -197,7 +197,13 @@ ad_filter_supplement(){
     wget ${ad_filter}
 }
 ad_filter_supplement
-sed -i '$i\\\\30 4    * * 0   root    bash /usr/local/v2ray.fun/autoupad.sh' /etc/crontab
+# 删除旧的配置广告策略自动升级的自动任务
+if [[ `grep -i "autoupad.sh" /etc/crontab` ]]; then
+    sed -e 'autoupad.sh' /etc/crontab
+fi
+if [[ ! `grep -i "v2ray.fun/maintain.sh" /etc/crontab` ]]; then
+    sed -i '$i 30 4    * * 0   root    bash /usr/local/v2ray.fun/maintain.sh' /etc/crontab
+fi
 service v2ray restart
 
 # auto open port after start
