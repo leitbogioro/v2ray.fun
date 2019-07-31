@@ -1,13 +1,20 @@
 #!/bin/bash
 export PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
+# color
+blue='\033[0;34m'
+yellow='\033[0;33m'
+green='\033[0;32m'
+red='\033[0;31m'
+plain='\033[0m'
+
 ad_filter="https://raw.githubusercontent.com/ToutyRater/V2Ray-SiteDAT/master/geofiles/h2y.dat"
 vf_path="/usr/local/v2ray.fun"
 
-# 检查是否为Root
+# Check Root
 [ $(id -u) != "0" ] && { echo "Error: You must be root to run this script"; exit 1; }
 
-# 如果检查到运行环境中存在阿里云服务，安装将立即终止
+# If detected Aliyun backdoor agent, Installation will be ended.
 agentwatch=`ps aux | grep 'agentwatch'`
 aliyunsrv=`ps aux | grep 'aliyun'`
 AliYunDun=`ps aux | grep 'AliYunDun'`
