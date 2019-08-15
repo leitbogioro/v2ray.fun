@@ -75,6 +75,7 @@ def WriteStreamNetwork(network, para):
         streamfile = file("/usr/local/v2ray.fun/json_template/tcp.json")
         tcp = json.load(streamfile)
         config[u"inbound"][u"streamSettings"] = tcp
+        config[u"inbound"][u"listen"] = None
 
     if (network == "tcp" and para != "none"):
         streamfile = file("/usr/local/v2ray.fun/json_template/http.json")
