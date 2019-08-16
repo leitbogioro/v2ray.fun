@@ -144,6 +144,8 @@ bash -c "$(curl -fsSL https://git.io/fh9AC)"
 
 - 添加自动维护功能，该功能包含：每周自动重启 v2ray 服务、更新广告过滤规则、清理访问日志。（2019.7.31）
 
+- 由于选用ws模式时，程序自动在配置文件的inbound>streamsettings>listen中写入本地地址，调回tcp模式的时候，这个值没有被写回来，所以我在写入json模块中“调整为tcp传输模式”选项里，加入一条将inbound中的listen参数强制拨回为null的指令，问题已修复。（2019.8.16）
+
 ## 特别说明 && 致谢
 
 也可以先查看下本仓库的[wiki](https://github.com/leitbogioro/v2ray.fun/wiki)
