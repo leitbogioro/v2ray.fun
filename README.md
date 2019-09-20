@@ -148,6 +148,8 @@ bash -c "$(curl -fsSL https://git.io/fh9AC)"
 
 - 升级 PC 客户端、Android 客户端版本。（2019.8.24）
 
+- 升级 PC 客户端版本，由于该客户端依赖 Net_Framework_4.7.2，故提供该组件的离线安装包下载程序。（2019.9.20）
+
 ## 特别说明 && 致谢
 
 也可以先查看下本仓库的[wiki](https://github.com/leitbogioro/v2ray.fun/wiki)
