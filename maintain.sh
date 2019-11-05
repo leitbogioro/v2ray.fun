@@ -6,9 +6,7 @@ v2ray_error_log=${v2ray_log}"/error.log"
 
 service v2ray stop
 
-if [ ! -d ${h2yfile} ]; then
-    rm -rf ${h2yfile}
-fi
+rm -rf ${h2yfile}
 wget https://raw.githubusercontent.com/ToutyRater/V2Ray-SiteDAT/master/geofiles/h2y.dat
 mv h2y.dat ${h2yfile}
 
