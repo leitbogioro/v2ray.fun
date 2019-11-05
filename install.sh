@@ -191,12 +191,14 @@ sed -i "s/port_is_here/${PORT}/g" /etc/v2ray/config.json
 python ${vf_path}/genclient.py
 python ${vf_path}/openport.py
 chmod +x ${vf_path}/*.py ${vf_path}/*.sh ${vf_path}/mydomain
+
 #配置自动更新广告过滤功能服务
 ad_filter_supplement(){
     cd /usr/bin/v2ray
     wget ${ad_filter}
 }
 ad_filter_supplement
+
 # 删除旧的配置广告策略自动升级的自动任务
 if [[ `grep -i "autoupad.sh" /etc/crontab` ]]; then
     sed -i 'autoupad.sh' /etc/crontab
