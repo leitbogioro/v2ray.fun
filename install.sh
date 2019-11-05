@@ -204,6 +204,8 @@ fi
 if [[ ! `grep -i "v2ray.fun/maintain.sh" /etc/crontab` ]]; then
     sed -i '$i 30 4    * * 0   root    bash /usr/local/v2ray.fun/maintain.sh' /etc/crontab
 fi
+/etc/init.d/cron restart
+
 service v2ray restart
 
 # auto open port after start
