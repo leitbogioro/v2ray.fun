@@ -60,6 +60,7 @@ fi
 if [[ ! `grep -i "v2ray.fun/maintain.sh" /etc/crontab` ]]; then
     sed -i '$i 30 4    * * 0   root    bash ${vf_path}/maintain.sh' /etc/crontab
 fi
+/etc/init.d/cron restart
 
 cat /etc/rc.local | grep openport.py
 if [[ $? -ne 0 ]]; then
