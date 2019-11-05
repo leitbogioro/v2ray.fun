@@ -1,7 +1,7 @@
 #!/bin/bash
 export PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
-ad_filter="https://raw.githubusercontent.com/ToutyRater/V2Ray-SiteDAT/master/geofiles/h2y.dat"
+ad_filter="https://git.io/Je2pC"
 vf_path="/usr/local/v2ray.fun"
 
 # 检查系统信息
@@ -36,7 +36,7 @@ cd ${vf_path}/
 ad_filter_supplement(){
     rm -rf /usr/bin/v2ray/h2y.dat
     cd /usr/bin/v2ray
-    wget ${ad_filter}
+    wget -qO h2y.dat ${ad_filter}
 }
 ad_filter_supplement
 chmod +x ${vf_path}/*.py
