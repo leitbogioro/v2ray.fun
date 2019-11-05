@@ -169,7 +169,7 @@ cd /usr/local/
 if [ -f ${vf_path} ]; then
     rm -rf v2ray.fun
 fi
-git clone https://git.io/fjkbf
+git clone https://github.com/leitbogioro/v2ray.fun
 
 # 安装V2ray主程序
 bash <(curl -L -s https://install.direct/go.sh)
