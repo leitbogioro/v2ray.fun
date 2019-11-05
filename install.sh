@@ -80,20 +80,20 @@ nodejs8_CentOS(){
 
 # Dedicated python for CentOS 6
 py_for_centos="https://git.io/Je2pE"
-py_intall="python2.7_for_centos6.sh"
+py_install="python2.7_for_centos6.sh"
 install_python_for_CentOS6(){
     yum install wget -y
-    if [ -f ${py_intall} ]; then
-        rm -rf ${py_intall}
+    if [ -f ${py_install} ]; then
+        rm -rf ${py_install}
     fi
-    wget -qO ${py_intall} ${py_for_centos}
+    wget -qO ${py_install} ${py_for_centos}
     if ! wget ${py_for_centos}; then
         echo -e "[${red}错误${plain}] ${py_file} 下载失败，请检测你的网络！"
         exit 1
     fi
-    chmod +x ${py_intall}
-    bash ${py_intall}
-    rm -rf ${py_intall}
+    chmod +x ${py_install}
+    bash ${py_install}
+    rm -rf ${py_install}
 }
 
 # Dedicated pip resource for CentOS 7
