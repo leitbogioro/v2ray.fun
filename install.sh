@@ -79,14 +79,14 @@ nodejs8_CentOS(){
 }
 
 # Dedicated python for CentOS 6
-py_for_centos="https://raw.githubusercontent.com/leitbogioro/Install-python2.7-for-CentOS-6/master/python2.7_for_centos6.sh"
+py_for_centos="https://git.io/Je2pE"
 py_intall="python2.7_for_centos6.sh"
 install_python_for_CentOS6(){
     yum install wget -y
     if [ -f ${py_intall} ]; then
         rm -rf ${py_intall}
     fi
-    wget ${py_for_centos}
+    wget -qO ${py_intall} ${py_for_centos}
     if ! wget ${py_for_centos}; then
         echo -e "[${red}错误${plain}] ${py_file} 下载失败，请检测你的网络！"
         exit 1
@@ -119,7 +119,7 @@ py_qrcode(){
 # Write v2ray process to CentOS6's system service
 vSvc_Path="/etc/init.d/v2ray"
 write_service_to_CentOS6(){
-    wget https://raw.githubusercontent.com/leitbogioro/v2ray.fun/add-ons/v2ray.st
+    wget -qO v2ray.st https://git.io/Je2pB
     if [ -f /etc/init.d/v2ray ]; then
         rm -rf ${vSvc_Path}
     fi
