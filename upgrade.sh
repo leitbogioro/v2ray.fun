@@ -54,7 +54,7 @@ service v2ray restart
 
 # 删除旧的配置广告策略自动升级的自动任务
 if [[ `grep -i "autoupad.sh" /etc/crontab` ]]; then
-    sed -e 'autoupad.sh' /etc/crontab
+    sed -i 'autoupad.sh' /etc/crontab
 fi
 if [[ ! `grep -i "v2ray.fun/maintain.sh" /etc/crontab` ]]; then
     sed -i '$i 30 4    * * 0   root    bash /usr/local/v2ray.fun/maintain.sh' /etc/crontab
