@@ -8,7 +8,7 @@ green='\033[0;32m'
 red='\033[0;31m'
 plain='\033[0m'
 
-ad_filter="https://raw.githubusercontent.com/ToutyRater/V2Ray-SiteDAT/master/geofiles/h2y.dat"
+ad_filter="https://git.io/Je2pC"
 vf_path="/usr/local/v2ray.fun"
 
 # Check Root
@@ -139,14 +139,14 @@ random_range(){
 # Main depends
 if [[ ${OS} == 'CentOS' ]] && [[ ${CentOS_Version} -eq "7" ]]; then
     CentOS7_repo
-    yum install epel-release vixie-cron socat unzip git ntp ntpdate lrzsz -y
+    yum install epel-release wget curl vixie-cron crontabs socat unzip git ntp ntpdate lrzsz -y
     nodejs8_CentOS
     npm install -g qrcode
     install_python_for_CentOS7
     py_qrcode
 elif [[ ${OS} == 'CentOS' ]] && [[ ${CentOS_Version} -eq "6" ]]; then
     CentOS6_repo
-    yum install epel-release vixie-cron socat unzip git ntp ntpdate lrzsz -y
+    yum install epel-release wget curl vixie-cron crontabs socat unzip git ntp ntpdate lrzsz -y
     nodejs8_CentOS
     npm install -g qrcode
     install_python_for_CentOS6
@@ -157,7 +157,7 @@ elif [[ ${OS} == 'CentOS' ]] && [[ ${CentOS_Version} -le "5" ]]; then
 else
     curl -sL https://deb.nodesource.com/setup_8.x | bash -
 	apt-get update
-	apt-get install curl unzip git ntp wget ntpdate python socat lrzsz nodejs -y
+	apt-get install wget curl unzip cron git ntp ntpdate python socat lrzsz nodejs -y
     npm install -g qrcode
 fi
 
@@ -169,7 +169,7 @@ cd /usr/local/
 if [ -f ${vf_path} ]; then
     rm -rf v2ray.fun
 fi
-git clone https://github.com/leitbogioro/v2ray.fun
+git clone https://git.io/fjkbf
 
 # 安装V2ray主程序
 bash <(curl -L -s https://install.direct/go.sh)
@@ -195,7 +195,7 @@ chmod +x ${vf_path}/*.py ${vf_path}/*.sh ${vf_path}/mydomain
 #配置自动更新广告过滤功能服务
 ad_filter_supplement(){
     cd /usr/bin/v2ray
-    wget ${ad_filter}
+    wget -qO h2y.dat ${ad_filter}
 }
 ad_filter_supplement
 
