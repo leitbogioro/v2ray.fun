@@ -31,7 +31,7 @@ fi
 # 重装V2ray.fun
 rm -rf ${vf_path}
 cd /usr/local/
-git clone https://github.com/leitbogioro/v2ray.fun
+git clone https://git.io/fjkbf
 cd ${vf_path}/
 ad_filter_supplement(){
     rm -rf /usr/bin/v2ray/h2y.dat
