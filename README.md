@@ -41,6 +41,7 @@ v2ray.fun 是一款用于控制、配置 v2ray Linux 服务端的脚本程序，
 - 每周定时清理日志，重启服务，更新广告过滤策略，避免日志文件大量占用服务端空间，程序长期运行卡死等问题
 - CentOS 6 完美支持
 - 一键下载客户端配置文件和**二维码**（通过szrz程序，xshell，secureCRT还有[macOS的iterm2](https://github.com/tracyone/v2ray.fun/wiki/MAC使用RZ、SZ远程上传下载文件都支持)都支持）
+- 提供全平台v2ray客户端下载（不包含iOS shadowrocket）
 - 自由更改**传输配置**：
   - 常规TCP
   - HTTP头部伪装
