@@ -52,7 +52,7 @@ v2ray.fun 是一款用于控制、配置 v2ray Linux 服务端的脚本程序，
   - mKCP 伪装 微信视频通话流量
 - 可设置“路径”（path）参数（配合 web 服务器分流使用）
 
-**WebSocket 传输不包括 web 服务器分流，请自行安装 Nginx/Apache/Caddy 等分流（当配置 WebSocket 功能时，不输入域名，程序把 v2ray 配置文件自动设置成监听本地 127.0.0.1 地址，我准备未来择机加入一键安装并配置 Caddy + ws + tls 的功能）。**
+**WebSocket 传输不包括 web 服务器分流，请自行安装 Nginx/Apache/Caddy 等分流（当配置 WebSocket 功能时，如果不输入域名，程序把 v2ray 配置文件自动设置成监听本地 127.0.0.1 地址，用来接应 Web 服务器分流，我准备未来择机加入一键安装并配置 Caddy + ws + tls 的功能）。**
 
 ## 客户端
 - 如需要 v2ray Android/Mac/Windows 客户端，请移步至本项目 https://github.com/leitbogioro/v2ray.fun/releases 页面寻找最新版，iOS 客户端因为 iOS 特殊的应用权限设置，你只能自己想办法去获得（中国区 AppStore 下架了所有跟 v2ray 相关的应用），Linux 版客户端正在开发中。 
