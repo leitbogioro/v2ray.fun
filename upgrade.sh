@@ -49,10 +49,6 @@ chmod +x /usr/local/bin/v2ray
 # 更新Vray主程序
 bash <(curl -L -s https://install.direct/go.sh)
 
-# 初始化环境
-python ${vf_path}/openport.py
-service v2ray restart
-
 # 删除旧的配置广告策略自动升级的自动任务
 if [[ `grep -i "autoupad.sh" /etc/crontab` ]]; then
     sed -i 'autoupad.sh' /etc/crontab
@@ -61,6 +57,10 @@ if [[ ! `grep -i "v2ray.fun/maintain.sh" /etc/crontab` ]]; then
     sed -i '$i 30 4    * * 0   root    bash ${vf_path}/maintain.sh' /etc/crontab
 fi
 /etc/init.d/cron restart
+
+# 初始化环境
+python ${vf_path}/openport.py
+service v2ray restart
 
 cat /etc/rc.local | grep openport.py
 if [[ $? -ne 0 ]]; then
