@@ -35,7 +35,7 @@ v2ray.fun 是一款用于控制、配置 v2ray Linux 服务端的脚本程序，
 ## 功能
 
 - 一键 启动 / 停止 / 重启 V2ray 服务端
-- 自动随机生成 UUID
+- 自动随机生成 UUID，自助修改指定的 UUID
 - 自助修改端口
 - 快速查看服务器连接信息
 - 每周定时清理日志，重启服务，更新广告过滤策略，避免日志文件大量占用服务端空间，程序长期运行卡死等问题
@@ -50,8 +50,9 @@ v2ray.fun 是一款用于控制、配置 v2ray Linux 服务端的脚本程序，
   - mKCP 伪装 FaceTime通话流量
   - mKCP 伪装 BT下载流量
   - mKCP 伪装 微信视频通话流量
+- 可设置“路径”（path）参数（配合 web 服务器分流使用）
 
-**WebSocket不包括Nginx分流，请自行安装Nginx来分流。**
+**WebSocket 传输不包括 web 服务器分流，请自行安装 Nginx/Apache/Caddy 等分流（当配置 WebSocket 功能时，不输入域名，程序把 v2ray 配置文件自动设置成监听本地 127.0.0.1 地址，我准备未来择机加入一键安装并配置 Caddy + ws + tls 的功能）。**
 
 ## 客户端
 - 如需要 v2ray Android/Mac/Windows 客户端，请移步至本项目 https://github.com/leitbogioro/v2ray.fun/releases 页面寻找最新版，iOS 客户端因为 iOS 特殊的应用权限设置，你只能自己想办法去获得（中国区 AppStore 下架了所有跟 v2ray 相关的应用），Linux 版客户端正在开发中。 
