@@ -103,7 +103,7 @@ def GenQRCode(name, string):
 def ShowQRCode(string):
     os.system("qrcode -w 200 " + string)
 
-print("=====  V2rayN v2.x =====")
+print("=====  V2rayN v4.x =====")
 GreenShow(GetVmessUrl())
 GenQRCode("config_v2rayN.png", GetVmessUrl())
 
