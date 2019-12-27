@@ -164,6 +164,8 @@ bash -c "$(curl -fsSL https://git.io/fh9AC)"
 
 - 在安装和升级程序中，修复判断加入自动维护功能定时运行逻辑，并重启一次 crontab 服务使更改生效。（2019.11.5）
 
+- 更新客户端版本（2019.12.27）
+
 ## 特别说明 && 致谢
 
 也可以先查看下本仓库的[wiki](https://github.com/leitbogioro/v2ray.fun/wiki)
