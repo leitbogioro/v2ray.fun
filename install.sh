@@ -72,9 +72,9 @@ CentOS7_repo(){
     yum makecache
 }
 
-# Dedicated NodeJS_8.X for CentOS
-nodejs8_CentOS(){
-    curl --silent --location https://rpm.nodesource.com/setup_8.x | bash -
+# Dedicated NodeJS_12.X for CentOS
+nodejs12_CentOS(){
+    curl --silent --location https://rpm.nodesource.com/setup_12.x | bash -
     yum install -y nodejs
 }
 
@@ -140,22 +140,22 @@ random_range(){
 if [[ ${OS} == 'CentOS' ]] && [[ ${CentOS_Version} -eq "7" ]]; then
     CentOS7_repo
     yum install epel-release wget curl vixie-cron crontabs socat unzip git ntp ntpdate lrzsz -y
-    nodejs8_CentOS
+    nodejs12_CentOS
     npm install -g qrcode
     install_python_for_CentOS7
     py_qrcode
 elif [[ ${OS} == 'CentOS' ]] && [[ ${CentOS_Version} -eq "6" ]]; then
     CentOS6_repo
     yum install epel-release wget curl vixie-cron crontabs socat unzip git ntp ntpdate lrzsz -y
-    nodejs8_CentOS
+    nodejs12_CentOS
     npm install -g qrcode
     install_python_for_CentOS6
     py_qrcode
 elif [[ ${OS} == 'CentOS' ]] && [[ ${CentOS_Version} -le "5" ]]; then
-    echo "您的系统版本是（${System_CentOS} ${CentOS_Version}），此系统不受支持，SSR.Go 安装程序即将退出！"
+    echo "您的系统版本是（${System_CentOS} ${CentOS_Version}），此系统不受支持，v2ray.fun 安装程序即将退出！"
     exit 1
 else
-    curl -sL https://deb.nodesource.com/setup_8.x | bash -
+    curl -sL https://deb.nodesource.com/setup_12.x | bash -
 	apt-get update
 	apt-get install wget curl unzip cron git ntp ntpdate python socat lrzsz nodejs -y
     npm install -g qrcode
