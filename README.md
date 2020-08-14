@@ -166,6 +166,8 @@ bash -c "$(curl -fsSL https://git.io/fh9AC)"
 
 - 更新客户端版本（2019.12.27）
 
+- 由于 v2ray 主程序安装脚本 https://install.direct/go.sh 已改版，不再提供原来的方案安装，项目已迁移至 https://github.com/v2fly/fhs-install-v2ray， 但该项目中提供的新安装方法对 v2ray 主程序生成的配置文件与旧版本 config.json 不兼容，以及将 v2ray 主程序生成可输入 v2ray 直接启动的软链接，与本程序启动命令 v2ray 相冲突。鉴于以上两种改动对本项目的兼容性产生较大影响，故根据该页面在2020年7月22日17:33:59形成的历史快照中的源代码：https://web.archive.org/web/20200622173359/https://install.direct/go.sh ，将 install.sh 中安装 v2ray 主程序的安装脚本回滚为历史版本，代码参见：https://github.com/leitbogioro/v2ray.fun/blob/master/go.sh 。并同样将该脚本在 update.sh 中，替换掉原来的 v2ray 安装脚本链接。(2020.8.15)
+
 ## 特别说明 && 致谢
 
 也可以先查看下本仓库的[wiki](https://github.com/leitbogioro/v2ray.fun/wiki)
