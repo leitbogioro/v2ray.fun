@@ -178,8 +178,7 @@ install_v2ray(){
     bash install-release.sh
     bash install-dat-release.sh
 }
-install_v2ray
-# bash <(curl -L -s https://install.direct/go.sh)
+# bash <(curl -L -s https://raw.githubusercontent.com/leitbogioro/v2ray.fun/master/go.sh)
 if [[ ${OS} == 'CentOS' ]] && [[ ${CentOS_Version} -eq "6" ]]; then
     write_service_to_CentOS6
 fi
