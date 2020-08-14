@@ -172,14 +172,13 @@ fi
 git clone https://github.com/leitbogioro/v2ray.fun
 
 # 安装V2ray主程序
-install_v2ray(){
-    curl -O https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh
-    curl -O https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-dat-release.sh
-    bash install-release.sh
-    bash install-dat-release.sh
-}
-install_v2ray
-# bash <(curl -L -s https://raw.githubusercontent.com/leitbogioro/v2ray.fun/master/go.sh)
+# install_v2ray(){
+    # curl -O https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh
+    # curl -O https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-dat-release.sh
+    # bash install-release.sh
+    # bash install-dat-release.sh
+# }
+bash <(curl -L -s https://raw.githubusercontent.com/leitbogioro/v2ray.fun/master/go.sh)
 if [[ ${OS} == 'CentOS' ]] && [[ ${CentOS_Version} -eq "6" ]]; then
     write_service_to_CentOS6
 fi
