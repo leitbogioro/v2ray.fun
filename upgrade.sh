@@ -18,11 +18,11 @@ fi
 
 # 安装依赖
 if [[ ${OS} == 'CentOS' ]];then
-    curl --silent --location https://rpm.nodesource.com/setup_8.x | bash -
+    curl --silent --location https://rpm.nodesource.com/setup_12.x | bash -
 	yum install curl wget vixie-cron crontabs unzip git ntp ntpdate lrzsz python socat nodejs -y
     npm install -g qrcode
 else
-    curl -sL https://deb.nodesource.com/setup_8.x | bash -
+    curl -sL https://deb.nodesource.com/setup_12.x | bash -
 	apt-get update
 	apt-get install curl cron unzip git ntp wget ntpdate python socat lrzsz nodejs -y
     npm install -g qrcode
