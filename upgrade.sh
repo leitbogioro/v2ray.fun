@@ -47,7 +47,14 @@ ln -sf ${vf_path}/v2ray /usr/local/bin/
 chmod +x /usr/local/bin/v2ray
 
 # 更新Vray主程序
-bash <(curl -L -s https://install.direct/go.sh)
+install_v2ray(){
+    curl -O https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh
+    curl -O https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-dat-release.sh
+    bash install-release.sh
+    bash install-dat-release.sh
+}
+install_v2ray
+# bash <(curl -L -s https://install.direct/go.sh)
 
 # 删除旧的配置广告策略自动升级的自动任务
 if [[ `grep -i "autoupad.sh" /etc/crontab` ]]; then
