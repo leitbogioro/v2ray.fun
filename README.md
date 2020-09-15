@@ -168,6 +168,8 @@ bash -c "$(curl -fsSL https://git.io/fh9AC)"
 
 - 由于 v2ray 主程序安装脚本 https://install.direct/go.sh 已改版，不再提供原来的方案安装，项目已迁移至 https://github.com/v2fly/fhs-install-v2ray， 但该项目中提供的新安装方法对 v2ray 主程序生成的配置文件与旧版本 config.json 不兼容，以及将 v2ray 主程序生成可输入 v2ray 直接启动的软链接，与本程序启动命令 v2ray 相冲突。鉴于以上两种改动对本项目的兼容性产生较大影响，故根据该页面在2020年7月22日17:33:59形成的历史快照中的源代码：https://web.archive.org/web/20200622173359/https://install.direct/go.sh ，将 install.sh 中安装 v2ray 主程序的安装脚本回滚为历史版本，代码参见：https://github.com/leitbogioro/v2ray.fun/blob/master/go.sh 。并同样将该脚本在 update.sh 中，替换掉原来的 v2ray 安装脚本链接。(2020.8.15)
 
+- v2ray linux x64 4.27.5 版本（以下简称“v2ray 4.27.5”，文件来源链接：https://github.com/v2ray/v2ray-core/releases/download/v4.27.5/v2ray-linux-64.zip ）的主程序压缩包根目录中，缺失了以前版本具备的“systemv”文件夹与下级目录“v2ray”文件；以及“v2ray.service”并没有出现在“systemd”的根目录中，而是在“systemd”的下属目录“system”中。以上两个文件，“/systemv/v2ray”起到为采用“init.d”方式管理程序服务项的系统，如 CentOS 等提供注册、启动并管理 v2ray 服务的作用；“/systemd/v2ray.service”起到为采用“systemd”方式管理程序服务项的系统，如 Debian/Ubuntu 等提供注册、启动并管理 v2ray 服务的作用。鉴于以上两种 v2ray 程序服务注册文件作用的描述和它们在 v2ray 4.27.5 版本程序包中的缺失、路径错误，导致本项目一旦在新环境中安装完成后，v2ray 程序无法正常运行（如果你在 v2ray 4.27.5 这个版本发布前就已安装了本项目，因为已经正确部署了系统服务，所以升级主程序并不会影响你的环境中 v2ray 的正常运行）。本项目从上一个 v2ray linux x64 4.27.0 版本（文件来源链接：https://github.com/v2ray/v2ray-core/releases/download/v4.27.0/v2ray-linux-64.zip ）内，找回了与注册 v2ray 系统服务有关的两个文件：“/systemv/v2ray”和“/systemd/v2ray.service”，并将它们迁移到本项目的“add-on”分支（https://github.com/leitbogioro/v2ray.fun/tree/add-ons ），在部署安装时，直接使用本项目提供的 v2ray 系统服务注册文件，不再采用 v2ray 官方主程序包里提供的文件，避免全新环境下安装出现错误。
+
 ## 特别说明 && 致谢
 
 也可以先查看下本仓库的[wiki](https://github.com/leitbogioro/v2ray.fun/wiki)
