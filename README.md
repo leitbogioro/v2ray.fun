@@ -180,7 +180,7 @@ bash -c "$(curl -fsSL https://git.io/fh9AC)"
 
 V2ray : [https://v2ray.com](https://v2ray.com)
 
-一代目（已转型，正开发全新的v2ray.fun项目: https://github.com/FunctionClub/V2ray.Fun）: [雨落无声](https://github.com/YLWS-4617)
+一代目（已转型，正开发全新的v2ray.fun项目: https://github.com/FunctionClub/V2ray.Fun ）: [雨落无声](https://github.com/YLWS-4617)
 
 二代目（已引退）: [tracyone](https://github.com/tracyone)
 
