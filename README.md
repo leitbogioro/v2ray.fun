@@ -172,6 +172,8 @@ bash -c "$(curl -fsSL https://git.io/fh9AC)"
 
 - 由于 v2ray 官方彻底放弃了https://github.com/v2ray/ 及分支下的各版本主程序文件的提供、并修改了获取文件版本号的api，导致本项目获取的主程序文件版本号有误，并且无法正确下载主程序并安装，给使用该项目的朋友们带来不便，敬请谅解。项目的新地址如下： https://github.com/v2fly/ ，获取主程序最新版本号的api变为：https://api.github.com/repos/v2fly/v2ray-core/releases/latest ，下载地址变量名改为：https://github.com/v2fly/v2ray-core/releases/download/$RELEASE_VERSION/v2ray-linux-$MACHINE.zip ，修正后，本项目可以正常获取新的v2ray主程序版本号，并正常下载并部署v2ray主程序文件。（2021.3.12）
 
+- 由于 v2ray 在2022年1月1日起，正式启用 VMess MD5 认证信息的淘汰机制，即服务器端将默认禁用对于 MD5 认证信息的兼容。任何使用 MD5 认证信息的客户端将无法连接到禁用 VMess MD5 认证信息的服务器端。在服务器端可以通过设置环境变量 v2ray.vmess.aead.forced = true 以关闭对于 MD5 认证信息的兼容。 或者 v2ray.vmess.aead.forced = false 以强制开启对于 MD5 认证信息认证机制的兼容，如果你的 v2ray 服务端和客户端都设置了 AlterID 为非0值，该机制都会对你 v2ray 的正常运行造成影响，故本次在 v2ray.service 中添加“Environment="V2RAY_VMESS_AEAD_FORCED=false"”来消除该影响，但为了安全考虑，强烈建议你的 v2ray 服务端和客户端都更新到最新版本，并关闭 VMess MD5 认证功能（将 AlterID 设置为0，服务端和客户端需同步设置）。参见：https://github.com/Jrohy/multi-v2ray/issues/561 （2022.6.12）
+
 ## 特别说明 && 致谢
 
 也可以先查看下本仓库的[wiki](https://github.com/leitbogioro/v2ray.fun/wiki)
