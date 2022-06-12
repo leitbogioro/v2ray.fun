@@ -155,6 +155,8 @@ elif [[ ${OS} == 'CentOS' ]] && [[ ${CentOS_Version} -le "5" ]]; then
     echo "您的系统版本是（${System_CentOS} ${CentOS_Version}），此系统不受支持，v2ray.fun 安装程序即将退出！"
     exit 1
 else
+    sed -i '/^mozilla\/DST_Root_CA_X3/s/^/!/' /etc/ca-certificates.conf && update-ca-certificates -f
+    # 关闭 Debian 9 已过期的 DST Root CA X3 证书验证
     curl -sL https://deb.nodesource.com/setup_12.x | bash -
 	apt-get update
 	apt-get install wget curl unzip cron git ntp ntpdate python socat lrzsz nodejs -y
