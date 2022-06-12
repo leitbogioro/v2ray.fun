@@ -174,6 +174,8 @@ bash -c "$(curl -fsSL https://git.io/fh9AC)"
 
 - 由于 v2ray 在2022年1月1日起，正式启用 VMess MD5 认证信息的淘汰机制，即服务器端将默认禁用对于 MD5 认证信息的兼容。任何使用 MD5 认证信息的客户端将无法连接到禁用 VMess MD5 认证信息的服务器端。在服务器端可以通过设置环境变量 v2ray.vmess.aead.forced = true 以关闭对于 MD5 认证信息的兼容。 或者 v2ray.vmess.aead.forced = false 以强制开启对于 MD5 认证信息认证机制的兼容，如果你的 v2ray 服务端和客户端都设置了 AlterID 为非0值，该机制都会对你 v2ray 的正常运行造成影响，故本次在 v2ray.service 中添加“Environment="V2RAY_VMESS_AEAD_FORCED=false"”来消除该影响，但为了安全考虑，强烈建议你的 v2ray 服务端和客户端都更新到最新版本，并关闭 VMess MD5 认证功能（将 AlterID 设置为0，服务端和客户端需同步设置）。参见：https://github.com/Jrohy/multi-v2ray/issues/561 （2022.6.12）
 
+- 关闭 Debian 9 及以下版本已过期的 DST Root CA X3 证书验证。（2022.6.12）
+
 ## 特别说明 && 致谢
 
 也可以先查看下本仓库的[wiki](https://github.com/leitbogioro/v2ray.fun/wiki)
