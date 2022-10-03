@@ -157,7 +157,7 @@ elif [[ ${OS} == 'CentOS' ]] && [[ ${CentOS_Version} -le "5" ]]; then
 else
     sed -i '/^mozilla\/DST_Root_CA_X3/s/^/!/' /etc/ca-certificates.conf && update-ca-certificates -f
     # 关闭 Debian 9 已过期的 DST Root CA X3 证书验证
-    curl -sL https://deb.nodesource.com/setup_12.x | bash -
+    curl -sL https://deb.nodesource.com/setup_14.x | bash -
 	apt-get update
 	apt-get install wget curl unzip cron git ntp ntpdate python socat lrzsz nodejs -y
     npm install -g qrcode
