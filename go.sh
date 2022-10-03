@@ -218,7 +218,7 @@ installSoftware(){
         SOFTWARE_UPDATED=1
     fi
 
-    colorEcho ${BLUE} "Installing ${COMPONENT}"
+    colorEcho ${BLUE} "Installing V2Ray v4.45.2 on x86_64"
     $CMD_INSTALL $COMPONENT
     if [[ $? -ne 0 ]]; then
         colorEcho ${RED} "Failed to install ${COMPONENT}. Please install it manually."
@@ -500,7 +500,8 @@ main(){
         colorEcho ${BLUE} "Restarting V2Ray service."
         startV2ray
     fi
-    colorEcho ${GREEN} "V2Ray ${NEW_VER} is installed."
+    #colorEcho ${GREEN} "V2Ray ${NEW_VER} is installed."
+    colorEcho ${GREEN} "V2Ray v4.45.2 is installed."
     rm -rf /tmp/v2ray
     return 0
 }
