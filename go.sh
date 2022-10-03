@@ -471,7 +471,8 @@ main(){
         elif [[ $RETVAL == 3 ]]; then
             return 3
         else
-            colorEcho ${BLUE} "Installing V2Ray ${NEW_VER} on ${ARCH}"
+            # colorEcho ${BLUE} "Installing V2Ray ${NEW_VER} on ${ARCH}"
+	    colorEcho ${BLUE} "Installing V2Ray v4.45.2 on x86_64"
             downloadV2Ray || return $?
         fi
     fi
