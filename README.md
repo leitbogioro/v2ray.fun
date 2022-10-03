@@ -176,6 +176,10 @@ bash -c "$(curl -fsSL https://git.io/fh9AC)"
 
 - 关闭 Debian 9 及以下版本已过期的 DST Root CA X3 证书验证。（2022.6.12）
 
+- 更新 nodejs 至 14。（2022.10.3）
+
+- 由于 v2ray 已更新到 5.0 以上版本，安装方法和配置方式和旧版有所区别，与该脚本不相适应，该管理脚本将 v2ray 核心停留在 v2ray 4.0 最后一个版本： 4.45.2，并停止功能更新，v2ray 4.0 核心来自：https://github.com/v2fly/v2ray-core/releases/v4.45.2 。（2022.10.3）
+
 ## 特别说明 && 致谢
 
 也可以先查看下本仓库的[wiki](https://github.com/leitbogioro/v2ray.fun/wiki)
